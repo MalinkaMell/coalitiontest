@@ -393,7 +393,7 @@ input.email {
 }
 
 .form-footer {
-    background-color: var(--brand);
+    border-top: 1px solid top var(--brand);
     color: var(--grayLight);
 }
 

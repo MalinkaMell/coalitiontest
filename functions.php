@@ -83,6 +83,9 @@ if ( ! function_exists( 'ct_custom_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'ct_custom_setup' );
 
+if(is_admin()){ 
+        require_once('inc/theme-settings.php');
+    }
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -131,7 +134,15 @@ wp_enqueue_style( 'ct-custom-custom-styles', get_template_directory_uri() . '/cu
 	}
 }
 add_action( 'wp_enqueue_scripts', 'ct_custom_scripts' );
+add_action('admin_enqueue_scripts', 'ct_uploader_js');
 
+function ct_uploader_js() {
+    if (isset($_GET['page']) && $_GET['page'] == 'theme-options') {
+        wp_enqueue_media();
+        wp_register_script('theme_options', get_template_directory_uri() . '/js/theme-settings.js', array('jquery'), '20151215', true);
+        wp_enqueue_script('theme_options');
+    }
+}
 /**
  * Implement the Custom Header feature.
  */

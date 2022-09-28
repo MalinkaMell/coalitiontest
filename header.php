@@ -51,7 +51,10 @@ endif; ?>
 
 		<div class="site-branding">
 			<?php
-			the_custom_logo();
+			$site_logo = get_option('site_logo');
+			$options = get_option('ct_settings');
+			echo intval($site_logo) > 0 ? the_custom_logo() : '<img alt='.get_bloginfo('name').' src=' . $options['ct_settings_company_logo'] . '>';
+			
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
