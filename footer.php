@@ -13,7 +13,8 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
+	<footer id="colophon" class="site-footer d-flex fv-center f-col">
+		<div class="container">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ct-custom' ) ); ?>">
 				<?php
@@ -27,6 +28,8 @@
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'ct-custom' ), 'ct-custom', '<a href="https://coalitiontechnologies.com/">Coalition Technologies</a>' );
 				?>
 		</div><!-- .site-info -->
+				</div>
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

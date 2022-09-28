@@ -16,6 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="stylesheet" href="https://use.typekit.net/sgm4xem.css">
 
 	<?php wp_head(); ?>
 </head>
@@ -23,8 +24,31 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ct-custom' ); ?></a>
+<div class="top-bar bg-accent">
+<div class="container">
+	<nav class="top-bar-nav">
 
+		<div>
+			<span class="text-dark">  Call us now! </span>  <a href=""> 385.154.11.28.35	</a>
+		</div>
+		<div>
+			<?php if (is_user_logged_in()):
+    $user = wp_get_current_user();
+	?>
+			<span class="text-accent-dark me-3">  ACCOUNT </span> <span class="text-light">LOGOUT   </span> 	
+			<?php
+else: ?>	
+         <span class="text-accent-dark">  LOGIN </span> SIGNUP
+		 <?php
+endif; ?>
+              </div>
+</nav>
+</div>
+</div>
 	<header id="masthead" class="site-header">
+		<div class="container">
+	<div class="content-header">
+
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
@@ -50,9 +74,16 @@
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu',
+				'depth' => 3,
 			) );
 			?>
 		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+				</div>				</div>
 
+
+
+	</header><!-- #masthead -->
 	<div id="content" class="site-content">
+		<div class="container">
+			<?php the_breadcrumb(); ?>
+		</div>
